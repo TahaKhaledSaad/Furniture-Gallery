@@ -1,0 +1,436 @@
+/* General Design ------------------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 3100px;
+    font-family: "pt-sans", sans-serif;
+    perspective: 600px;
+}
+
+:root {
+    --maincolor: #7b5244;
+    --subcolor: #333;
+}
+
+::selection {
+    color: white;
+    background: var(--maincolor);
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header ---------------------------------------------- */
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0px;
+
+}
+
+.header nav ul li {
+    display: inline;
+    margin: 10px;
+    padding: 8px;
+    position: relative;
+}
+
+.header nav ul li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 0%;
+    border: 3px solid var(--maincolor);
+    border-color: var(--maincolor) transparent transparent var(--maincolor);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.header nav ul li:hover::after {
+    width: 20%;
+    height: 20%;
+    opacity: 1;
+}
+
+.header nav ul li::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0%;
+    height: 0%;
+    border: 3px solid var(--maincolor);
+    border-color: transparent var(--maincolor) var(--maincolor) transparent;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.header nav ul li:hover::before {
+    width: 20%;
+    height: 20%;
+    opacity: 1;
+}
+
+.header nav ul li a {
+    color: var(--maincolor);
+    font-weight: bold;
+    text-transform: lowercase
+}
+
+.study {
+    position: relative;
+}
+
+.tables {
+    border-radius: 5px;
+    color: var(--subcolor);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* -- */
+    position: absolute;
+    width: 500px;
+    border: 2px solid rgba(71, 10, 10, 0.356);
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    transform: scale(0);
+    transition: transform 01s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.study:hover .tables {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+}
+
+.tabels:hover {
+    opacity: 1;
+}
+
+.tables .table-item hr {
+    width: 50%;
+    font-weight: bold;
+}
+
+.tables .table-item span {
+    color: gray;
+    margin: 10px 0px;
+}
+
+.tables .table-item p {
+    margin-top: 15px;
+    color: var(--basecolor);
+}
+
+.header .icons {
+    position: relative;
+}
+
+.header .icons i {
+    color: var(--subcolor);
+    margin: 5px 10px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.header .icons span {
+    font-weight: bold;
+}
+
+.icons::after {
+    content: "0";
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    color: #fff;
+    background-color: var(--maincolor);
+    font-size: 13px;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.hero img {
+    width: 100%;
+}
+
+/* Category ---------------------------------------------- */
+.category-title {
+    text-align: center;
+}
+
+.category-title h2 {
+    font-weight: bold;
+    margin: 20px;
+    font-size: 30px;
+}
+
+.category-title div {
+    width: 100px;
+    height: 2.5px;
+    margin: auto;
+    margin-top: -10px;
+    background-color: var(--maincolor);
+    transition: width .5s;
+}
+
+.category-title:hover div {
+    width: 160px;
+}
+
+.products {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.product-item {
+    width: 24%;
+    position: relative;
+}
+
+.product-item img {
+    width: 100%;
+}
+
+.product-item p {
+    margin: 8px 0px;
+    margin-top: 25px;
+    color: gray;
+    font-size: 18px;
+}
+
+.product-item h4 {
+    font-size: 18px;
+}
+
+.product-item i {
+    color: brown;
+    font-size: 28px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    visibility: hidden;
+
+}
+
+.product-item:hover i {
+    visibility: visible;
+}
+
+/* Discount ---------------------------------------------- */
+.discount {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.discount-text {
+    background-color: #F7F3EF;
+    height: 300px;
+    width: 49%;
+    padding: 20px;
+    position: relative;
+}
+
+.discount-text i {
+    position: absolute;
+    font-size: 50px;
+    color: var(--maincolor);
+
+}
+
+.discount-text h3,
+.discount-text .marketing {
+    margin-left: 60px;
+    color: var(--subcolor);
+}
+
+.discount-text p {
+    margin-top: 30px;
+    line-height: 30px;
+}
+
+.discount-text .line div {
+    width: 50px;
+    height: 2px;
+    margin: 5px;
+    background-color: var(--maincolor);
+    display: inline-block;
+
+}
+
+.line {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.discount-item1 {
+    height: 300px;
+    width: 24%;
+    background-image: url(../images/cms-banner-1.jpg);
+    background-size: cover;
+    padding: 20px;
+    transition: transform 1s;
+}
+
+.discount-item2 {
+    height: 300px;
+    width: 24%;
+    background-image: url(../images/cms-banner-2.jpg);
+    background-size: cover;
+    padding: 20px;
+    transition: transform 1s;
+}
+
+.discount-item1 p,
+.discount-item2 p {
+    font-size: 20px;
+    color: gray;
+    margin: 5px 0px;
+}
+
+.discount-item1 h3,
+.discount-item2 h3 {
+    font-size: 22px;
+    color: var(--basecolor);
+}
+
+.discount-item1:hover,
+.discount-item2:hover {
+    transform: scale(1.1);
+}
+
+/* Delivery ---------------------------------------------- */
+.delivery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 50px 0px;
+}
+
+.delivery-item {
+    width: 18%;
+    text-align: center;
+    border: 2px solid gray;
+    padding-right: 50px;
+    border-color: transparent rgb(211, 197, 197) transparent transparent;
+    transition: 1s;
+}
+
+.delivery-item i {
+    color: #948073;
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.delivery-item p {
+    color: gray;
+    margin-top: 8px;
+}
+
+.last-item {
+    border: none;
+}
+
+.delivery-item:hover i {
+    transform: scale(1.3);
+    color: rgb(203, 86, 86);
+}
+
+
+/* Featured Products  ---------------------------------------------- */
+.featured-title {
+    margin: 80px 0 20px;
+}
+
+.kinds {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.product-info i {
+    margin: 10px 0px;
+    color: rgb(255, 255, 0);
+    font-size: 20px;
+}
+
+.product-info p {
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.card {
+    width: 30%;
+}
+
+.card .front {
+    position: relative;
+
+}
+.cards{
+    display: flex;
+    flex-direction: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0px;
+}
+.card .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(250, 250, 250, 0.7), rgba(250, 250, 250, 0.7)), url(../images/chair5.jpg);
+    opacity: 0;
+    text-align: center;
+    padding-top: 45%;
+    transition: 1s;
+    visibility: hidden;
+}
+
+.back i {
+    font-size: 35px;
+    color: var(--maincolor);
+    padding: 2px;
+    cursor: pointer;
+    z-index: 2;
+
+}
+
+.card:hover .back {
+    visibility: visible;
+    opacity: 0.9;
+}
